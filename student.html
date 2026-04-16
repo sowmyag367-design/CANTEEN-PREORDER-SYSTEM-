@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Food</title>
+</head>
+
+<body style="
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#f5f7fa;
+">
+
+<h1 style="text-align:center;color:#2E7D32;">🍴 Order Food</h1>
+
+<div style="text-align:center;">
+<input type="text" id="name" placeholder="Enter your name"
+style="padding:10px;border-radius:10px;border:1px solid #ccc;">
+</div>
+
+<br>
+
+<div id="menu" style="
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:20px;
+"></div>
+
+<div style="text-align:center;">
+<button onclick="placeOrder()" style="
+padding:12px 25px;
+background:#2E7D32;
+color:white;
+border:none;
+border-radius:20px;
+font-size:16px;
+">
+Place Order 🚀
+</button>
+
+<h2 id="bill"></h2>
+</div>
+
+<script>
+const items=[
+["idli","Idli",30,"idli.jpg"],
+["dosa","Dosa",50,"dosa.jpg"],
+["tea","Tea",10,"tea.jpg"],
+["pizza","Pizza",120,"pizza.jpg"],
+["burger","Burger",80,"burger.jpg"],
+["fruit","Fruit Bowl",60,"fruit.jpg"],
+["coffee","Coffee",40,"coffee.jpg"],
+["biryani","Veg Biryani",100,"biryani.jpg"],
+["momos","Momos",70,"momos.jpg"],
+["sandwich","Sandwich",70,"sandwich.jpg"],
+["noodles","Noodles",90,"noodles.jpg"],
+["juice","Juice",40,"juice.jpg"]
+];
+
+let menuHTML="";
+items.forEach(i=>{
+menuHTML+=`
+<div style="width:180px;background:white;border-radius:15px;box-shadow:0 4px 10px gray;padding:10px;text-align:center;">
+<img src="${i[3]}" style="width:100%;height:120px;object-fit:cover;border-radius:10px;">
+<h3>${i[1]}</h3>
+<p style="color:#FF9800;">₹${i[2]}</p>
+<input type="number" id="${i[0]}" value="0">
+</div>`;
+});
+document.getElementById("menu").innerHTML=menuHTML;
+
+function placeOrder(){
+let name=document.getElementById("name").value;
+if(name==""){alert("Enter name");return;}
+
+let total=0;
+let order={name,time:new Date().toLocaleString()};
+
+items.forEach(i=>{
+let q=parseInt(document.getElementById(i[0]).value)||0;
+order[i[0]]=q;
+total+=q*i[2];
+});
+
+order.total=total;
+
+let orders=JSON.parse(localStorage.getItem("orders"))||[];
+orders.push(order);
+localStorage.setItem("orders",JSON.stringify(orders));
+
+document.getElementById("bill").innerHTML=
+"🧾 Total: ₹"+total+"<br><span style='color:#2E7D32;'>Thank you 😊</span>";
+
+setTimeout(()=>{window.location.href="index.html";},4000);
+}
+</script>
+
+</body>
+</html>

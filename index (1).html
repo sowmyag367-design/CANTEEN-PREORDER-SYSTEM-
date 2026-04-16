@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Canteen Login</title>
+</head>
+
+<body style="
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
+background-size:cover;
+background-position:center;
+">
+
+<!-- Light overlay -->
+<div style="
+background:rgba(255,255,255,0.7);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+">
+
+<!-- Card -->
+<div style="
+background:white;
+padding:35px;
+border-radius:20px;
+text-align:center;
+width:300px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+">
+
+<h1 style="color:#2E7D32;">🍽 Canteen</h1>
+<p style="color:gray;">Eat Fresh • Stay Happy 😋</p>
+
+<br>
+
+<button onclick="goStudent()" style="
+width:100%;
+padding:12px;
+margin-bottom:15px;
+background:#2E7D32;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+">
+👨‍🎓 Student Login
+</button>
+
+<button onclick="goCanteen()" style="
+width:100%;
+padding:12px;
+background:#FF9800;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+">
+👨‍🍳 Canteen Login
+</button>
+
+</div>
+</div>
+
+<script>
+function goStudent(){
+window.location.href="student.html";
+}
+
+function goCanteen(){
+let pass=prompt("Enter Password:");
+if(pass==="1234"){
+window.location.href="orders.html";
+}else{
+alert("Wrong Password ❌");
+}
+}
+</script>
+
+</body>
+</html>

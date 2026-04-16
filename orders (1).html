@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orders</title>
+</head>
+
+<body style="
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#fff3e0;
+">
+
+<h1 style="text-align:center;color:#FF9800;">👨‍🍳 Orders Dashboard</h1>
+
+<div id="orders" style="padding:20px;"></div>
+
+<script>
+function showOrders(){
+
+let orders=JSON.parse(localStorage.getItem("orders"))||[];
+let output="";
+
+if(orders.length==0){
+output="<h3 style='text-align:center;'>No Orders</h3>";
+}else{
+
+orders.forEach((o,i)=>{
+output+=`
+<div style="
+background:white;
+margin:10px auto;
+padding:15px;
+border-radius:15px;
+box-shadow:0 4px 10px gray;
+width:300px;
+text-align:center;
+">
+<h3 style="color:#2E7D32;">${o.name}</h3>
+<p>${o.time}</p>
+<p>Total Items Ordered</p>
+<b style="color:#FF9800;">₹${o.total}</b>
+<br><br>
+<button onclick="del(${i})" style="
+background:red;
+color:white;
+border:none;
+padding:8px;
+border-radius:8px;
+">
+Done
+</button>
+</div>`;
+});
+
+}
+
+document.getElementById("orders").innerHTML=output;
+}
+
+function del(i){
+let orders=JSON.parse(localStorage.getItem("orders"));
+orders.splice(i,1);
+localStorage.setItem("orders",JSON.stringify(orders));
+showOrders();
+}
+
+showOrders();
+</script>
+
+</body>
+</html>

@@ -7,10 +7,12 @@
 <body style="
 margin:0;
 font-family:'Segoe UI',sans-serif;
-background:#fff3e0;
+background:#f5f5f5;
 ">
 
-<h1 style="text-align:center;color:#FF9800;">👨‍🍳 Orders Dashboard</h1>
+<h1 style="text-align:center;color:#444;padding:15px;">
+👨‍🍳 Orders Dashboard
+</h1>
 
 <div id="orders" style="padding:20px;"></div>
 
@@ -42,38 +44,43 @@ if(o.sandwich > 0) items += "Sandwich: " + o.sandwich + "<br>";
 if(o.juice > 0) items += "Juice: " + o.juice + "<br>";
 if(o.noodles > 0) items += "Noodles: " + o.noodles + "<br>";
 
+if(items === "") items = "No items selected";
+
 output += `
 <div style="
-background:#f2f2f2;
-margin:10px auto;
-padding:15px;
-border-radius:15px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-width:300px;
+background:#e0e0e0;
+margin:15px auto;
+padding:18px;
+border-radius:18px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+width:320px;
 text-align:center;
 ">
 
 <h3 style="color:#333;">${o.name}</h3>
+
 <p style="color:#666;">${o.time}</p>
 
-<p style="color:#444;">
+<p style="color:#222;font-size:15px;">
 ${items}
 </p>
 
-<h4 style="color:#555;">Total: ₹${o.total}</h4>
+<h4 style="color:#000;">Total: ₹${o.total}</h4>
 
 <button onclick="del(${i})" style="
-background:red;
+background:#d32f2f;
 color:white;
 border:none;
-padding:8px;
+padding:8px 12px;
 border-radius:8px;
 margin-top:10px;
+cursor:pointer;
 ">
 Done
 </button>
 
-</div>`;
+</div>
+`;
 });
 
 }

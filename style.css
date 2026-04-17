@@ -1,0 +1,80 @@
+/* GENERAL */
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:#d6d6d6;
+}
+
+/* HEADING */
+h1{
+  text-align:center;
+  color:#333;
+  padding:15px;
+}
+
+/* CARD (ORDER BOX) */
+.card{
+  background:#eeeeee;
+  margin:15px auto;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+  width:320px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.03);
+}
+
+/* NAME */
+.card h3{
+  color:#222;
+  margin-bottom:5px;
+}
+
+/* TIME */
+.card p.time{
+  color:#666;
+  font-size:14px;
+}
+
+/* ITEMS */
+.card p.items{
+  color:#333;
+  font-size:15px;
+  margin:10px 0;
+  line-height:1.6;
+}
+
+/* TOTAL */
+.card h4{
+  color:#000;
+  margin-top:10px;
+}
+
+/* BUTTON */
+.btn{
+  background:#444;
+  color:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:10px;
+  margin-top:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:black;
+}
+
+/* REMOVE BUTTON */
+.btn-danger{
+  background:#d32f2f;
+}
+
+.btn-danger:hover{
+  background:#b71c1c;
+}
